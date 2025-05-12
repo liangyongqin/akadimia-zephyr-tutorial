@@ -1,0 +1,51 @@
+/*
+ * Copyright (c) 2025 liangyq <liangyongqincn@gmail.com>
+ *
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* MCO Maximum: 100 MHz(the maximum I/O speed)*/
+
+/* MCO1 */
+#define MCO1_SEL_HSI    0
+#define MCO1_SEL_LSE    1
+#define MCO1_SEL_HSE    2
+#define MCO1_SEL_PLL    3
+
+#define MCO1_PRE_DIV_1  0
+#define MCO1_PRE_DIV_2  4
+#define MCO1_PRE_DIV_3  5
+#define MCO1_PRE_DIV_4  6
+#define MCO1_PRE_DIV_5  7
+
+/* MCO2 */
+#define MCO2_SEL_SYSCLK 0
+#define MCO2_SEL_PLLI2S 1
+#define MCO2_SEL_HSE    2
+#define MCO2_SEL_PLL    3
+
+#define MCO2_PRE_DIV_1  0
+#define MCO2_PRE_DIV_2  4
+#define MCO2_PRE_DIV_3  5
+#define MCO2_PRE_DIV_4  6
+#define MCO2_PRE_DIV_5  7
+
+&clk_hse {
+    status = "okay";
+};
+
+&mco1 {
+	clocks = <&rcc STM32_SRC_HSE MCO1_SEL(MCO1_SEL_HSE)>;
+	prescaler = <MCO1_PRE(MCO1_PRE_DIV_2)>;
+	pinctrl-0 = <&rcc_mco_1_pa8>;
+	pinctrl-names = "default";
+	status = "okay";
+};
+
+&mco2 {
+	clocks = <&rcc STM32_SRC_HSE MCO2_SEL(MCO2_SEL_HSE)>;
+	prescaler = <MCO2_PRE(MCO2_PRE_DIV_2)>;
+	pinctrl-0 = <&rcc_mco_2_pc9>;
+	pinctrl-names = "default";
+	status = "okay";
+};

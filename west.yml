@@ -7,7 +7,7 @@ manifest:
     - name: zephyr
       remote: akadimia
       revision: main
-      path: ../zephyr
+      path: zephyr
       import: true
 
   self:

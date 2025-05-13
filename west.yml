@@ -2,6 +2,13 @@ manifest:
   remotes:
     - name: akadimia
       url-base: https://github.com/liangyongqin
+  
+  projects:
+    - name: zephyr
+      remote: akadimia
+      revision: main
+      path: ../zephyr
+      import: true
 
   self:
     west-commands: scripts/west-commands.yml
